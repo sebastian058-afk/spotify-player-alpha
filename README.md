@@ -2,26 +2,26 @@
 
 This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.2)](https://tailwindcss.com/blog/tailwindcss-v3-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
 
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
-
 ## How to use
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+Create or use an existing Spotify Account via www.spotify.com.
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-```
+Navigate to https://developer.spotify.com/dashboard/applications and start a new app.
 
-```bash
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
+Click on Edit Setting and add the following URL to Redirect URLS input field: http://localhost:3000/api/auth/callback/spotify
 
-```bash
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
-```
+Click on save.
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+Open project in code editor, create a file in root directory named .env.local and type in the following text:
+
+NEXTAUTH_URL=http://localhost:3000
+
+NEXT_PUBLIC_CLIENT_SECRET= your client secret here (available at your application created inside https://developer.spotify.com/dashboard/applications)
+
+NEXT_PUBLIC_CLIENT_ID= your client id here (available at your application created inside https://developer.spotify.com/dashboard/applications)
+
+JWT_SECRET=some_super_secret_value
+
+run `npm install`
+
+run `npm run dev`
